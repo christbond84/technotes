@@ -78,7 +78,7 @@ const DashHeader = () => {
   }
 
   let usersButton = null
-  if (isManager || isAdmin) {
+  if ((isManager || isAdmin) && !USERS_REGEX.test(pathname)) {
     usersButton = (
       <button className="icon-button" title="Users" onClick={onUsersClicked}>
         <FontAwesomeIcon icon={faUserGear} />
