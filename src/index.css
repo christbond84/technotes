@@ -33,6 +33,9 @@
   padding: 0.25em;
   margin-bottom: 0.5em;
 }
+.offscreen{
+  display: none;
+}
 
 .errmsg a:any-link {
   color: var(--ERROR);

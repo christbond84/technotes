@@ -31,7 +31,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const accessToken = await Login({ username, password }).unwrap()
+      const accessToken = await Login({ username, password, persist }).unwrap()
       dispatch(setCredentials(accessToken.accessToken))
       setUsername("")
       setPassword("")
@@ -54,7 +54,20 @@ const Login = () => {
   const handlePwdInput = (e) => setPassword(e.target.value)
   const togglePersist = (e) => setPersist((prev) => !prev)
 
-  if (isLoading) return <RingLoader color={"#FFF"} />
+  if (isLoading)
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <RingLoader color={"#FFF"} size={100} />
+      </div>
+    )
 
   const content = (
     <section className="public">

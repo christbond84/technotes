@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { useAddNewUserMutation } from "./usersApiSlice"
 import ROLES from "../../config/roles"
 import { faSave } from "@fortawesome/free-solid-svg-icons"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const USER_REGEX = /^[A-z]{3,20}$/
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/
@@ -70,7 +70,10 @@ const NewUserForm = () => {
 
   const content = (
     <>
-      <p className={errClass}>{error?.data?.message}</p>
+      <p className={errClass}>
+        {`${error?.data?.message} - `}
+        <Link to={"/login"}>Please login again</Link>
+      </p>
       <form className="form" onSubmit={onSaveUser}>
         <div className="form__title-row">
           <h2>New User</h2>

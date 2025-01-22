@@ -5,25 +5,25 @@ const Public = () => {
     <section className="public">
       <header>
         <h1>
-          Welcome to <span className="nowrap">Dan D. Repairs!</span>
+          Welcome to <span className="nowrap">compuTech Repairs!</span>
         </h1>
       </header>
       <main className="public__main">
         <p>
-          Located in Beautiful Downtown Foo City, Dan D. Repairs provides a
+          Located in Beautiful Trivandrum City, Computech Repairs provides a
           trained staff ready to meet your tech repair needs.
         </p>
         <address className="public__addr">
-          Dan D. Repairs
+          compuTech Repairs
           <br />
-          555 Foo Drive
+          555 Statue Lane
           <br />
-          Foo City, CA 12345
+          East Fort, Trivandrum 695541
           <br />
-          <a href="tel:+15555555555">(555) 555-5555</a>
+          <a href="tel:+15555555555">(944) 123-4567</a>
         </address>
         <br />
-        <p>Owner: Dan Davidson</p>
+        <p>Owner: Joseph George</p>
       </main>
       <footer>
         <Link to={"/login"}>Employee login</Link>

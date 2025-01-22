@@ -9,9 +9,10 @@ const NewNote = () => {
     }),
   })
 
-  if (!users?.length) return <PulseLoader color={"#FFF"} />
-  const content = <NewNoteForm users={users} />
-  return content
+  // if (!users?.length) return <PulseLoader color={"#FFF"} />
+  if (!users?.length) return <p>Loading......</p>
+
+  return <NewNoteForm users={users} />
 }
 
 export default NewNote

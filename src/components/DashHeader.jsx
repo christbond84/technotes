@@ -102,19 +102,30 @@ const DashHeader = () => {
 
   const errClass = isError ? "errmsg" : "offscreen"
 
-  let buttonContent = null
-  if (isLoading) buttonContent = <RingLoader color={"#FFF"} />
-  else {
-    buttonContent = (
-      <>
-        {newNoteButton}
-        {newUserButton}
-        {notesButton}
-        {usersButton}
-        {logoutButton}
-      </>
+  if (isLoading)
+    return (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <RingLoader color={"#FFF"} size={100} />
+      </div>
     )
-  }
+
+  const buttonContent = (
+    <>
+      {newNoteButton}
+      {newUserButton}
+      {notesButton}
+      {usersButton}
+      {logoutButton}
+    </>
+  )
 
   const content = (
     <>
@@ -122,7 +133,7 @@ const DashHeader = () => {
       <header className="dash-header">
         <div className={`dash-header__container ${dashClass}`}>
           <Link to={"/dash"}>
-            <h1 className="dash-header__title">techNotes</h1>
+            <h1 className="dash-header__title">compuTech</h1>
           </Link>
           <nav className="dash-header__nav">{buttonContent}</nav>
         </div>

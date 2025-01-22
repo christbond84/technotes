@@ -16,7 +16,20 @@ const UsersList = () => {
   })
 
   let content
-  if (isLoading) content = <PuffLoader color={"#FFF"} />
+  if (isLoading)
+    content = (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <PuffLoader color={"#FFF"} size={100} />
+      </div>
+    )
   if (isError) content = <p className="errmsg">{error.data?.message}</p>
   if (isSuccess) {
     const { ids } = users

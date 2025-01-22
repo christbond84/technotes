@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import Layout from "./components/Layout"
 import Public from "./components/Public"
 import Login from "./features/auth/Login"
@@ -17,13 +17,16 @@ import ROLES from "./config/roles"
 import useTitle from "./hooks/useTitle"
 
 function App() {
-  useTitle("Dan D. Repairs")
+  useTitle("Computech Repairs")
+  const persist = JSON.parse(localStorage.getItem("persist"))
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Public />} />
+        <Route
+          index
+          element={persist ? <Navigate to={"dash"} /> : <Public />}
+        />
         <Route path="login" element={<Login />} />
-
         <Route element={<PersistLogin />}>
           <Route
             element={<RequireAuth allowedRoles={[...Object.values(ROLES)]} />}

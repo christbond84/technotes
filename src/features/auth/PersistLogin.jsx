@@ -4,6 +4,7 @@ import { useRefreshMutation } from "./authApiSlice"
 import usePersist from "../../hooks/usePersist"
 import { useSelector } from "react-redux"
 import { selectCurrentToken } from "./authSlice"
+import { RingLoader } from "react-spinners"
 
 import React from "react"
 
@@ -40,7 +41,19 @@ const persistLogin = () => {
     content = <Outlet />
   } else if (isLoading) {
     console.log("loading")
-    content = <p>Loading....</p>
+    content = (
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <RingLoader color={"#FFF"} size={100} />
+      </div>
+    )
   } else if (isError) {
     console.log("error")
     content = (
@@ -54,7 +67,6 @@ const persistLogin = () => {
     content = <Outlet />
   } else if (token && isUninitialized) {
     console.log("token and uninit")
-    console.log(isUninitialized)
     content = <Outlet />
   }
 

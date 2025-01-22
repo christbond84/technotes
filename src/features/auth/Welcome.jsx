@@ -5,7 +5,7 @@ const Welcome = () => {
   const { isManager, isAdmin } = useAuth()
   const today = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
-    timeStyle: "long",
+    timeStyle: "medium",
   }).format(new Date())
 
   const content = (
